@@ -3,6 +3,7 @@ on:
   push:
     branches-ignore:
       - gha
+      - gh-pages
 name: Check build (non-master)
 jobs:
   check-build:
