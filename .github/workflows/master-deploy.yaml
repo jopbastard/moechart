@@ -12,6 +12,8 @@ jobs:
     runs-on: ubuntu-latest
     name: Deploy site
     steps:
+      - name: Check out code
+        uses: actions/checkout@v3
       - name: Check build and create artifact
         id: create-artifact
         uses: ./.github/actions/check-build
