@@ -1,7 +1,7 @@
 name: Check build
 description: Ensures that the site will build, preventing garbage from being deployed
 inputs:
-  generate-artifact:
+  generate_artifact:
     description: Whether or not to generate a build artifact for eventual publication
     required: false
     default: "false"
