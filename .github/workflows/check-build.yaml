@@ -1,0 +1,13 @@
+on:
+  pull_request: ~
+  push:
+    branches-ignore:
+      - gha
+name: Check build (non-master)
+jobs:
+  check-build:
+    runs-on: ubuntu-latest
+    name: Check build
+    steps:
+      - name: Check build and create artifact
+        uses: ./.github/actions/check-build

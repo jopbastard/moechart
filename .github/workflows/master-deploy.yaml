@@ -1,0 +1,34 @@
+on:
+  push:
+    branches:
+      - gha
+    paths:
+      - public/**
+      - src/**
+      - package-lock.json
+      - tsconfig.json
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    name: Deploy site
+    steps:
+      - name: Check build and create artifact
+        id: create-artifact
+        uses: ./.github/actions/check-build
+        with:
+          generate-artifact: "true"
+      - name: Fetch artifact
+        uses: actions/download-artifact@v3
+        with:
+          name: ${{ steps.create-artifact.outputs.artifact-name }}
+          path: build
+      - name: Set up nodejs
+        uses: actions/setup-node@v3
+        with:
+          node-version: 19
+      - name: Publish github pages
+        run: |
+          git remote set-url origin ${{ github.repositoryUrl }}
+          npm run gh-pages -d build -- -u "github-actions-bot <support+actions@github.com>"
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
