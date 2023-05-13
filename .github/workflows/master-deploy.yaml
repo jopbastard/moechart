@@ -31,6 +31,6 @@ jobs:
       - name: Publish github pages
         run: |
           git remote set-url origin ${{ github.repositoryUrl }}
-          npm run gh-pages -d build -- -u "github-actions-bot <support+actions@github.com>"
+          npm run master_deploy
         env:
           GITHUB_TOKEN: ${{ github.token }}
