@@ -18,7 +18,7 @@ jobs:
         id: create-artifact
         uses: ./.github/actions/check-build
         with:
-          generate-artifact: "true"
+          generate_artifact: "true"
       - name: Fetch artifact
         uses: actions/download-artifact@v3
         with:
