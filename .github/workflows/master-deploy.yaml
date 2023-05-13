@@ -1,13 +1,12 @@
 on:
-  workflow_dispatch: ~
   push:
     branches:
       - gha
-#    paths:
-#      - public/**
-#      - src/**
-#      - package-lock.json
-#      - tsconfig.json
+    paths:
+      - public/**
+      - src/**
+      - package-lock.json
+      - tsconfig.json
 jobs:
   deploy:
     runs-on: ubuntu-latest
