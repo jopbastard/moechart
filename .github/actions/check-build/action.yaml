@@ -25,7 +25,7 @@ runs:
       shell: bash
       run: npm build
     - name: Upload build artifact
-      if: ${{ inputs.generate-artifact != "false" }}
+      if: github.event.inputs.generate-artifact != "false"
       uses: actions/upload-artifact@v3
       with:
         name: gh-pages-artifact
