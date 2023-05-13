@@ -23,7 +23,7 @@ runs:
       run: npm install
     - name: Build site
       shell: bash
-      run: npm build
+      run: npm run build
     - name: Upload build artifact
       if: ${{ inputs.generate_artifact != 'false' }}
       uses: actions/upload-artifact@v3
