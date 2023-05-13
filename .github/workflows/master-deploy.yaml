@@ -29,8 +29,7 @@ jobs:
         with:
           node-version: 19
       - name: Publish github pages
-        run: |
-          git remote set-url origin ${{ github.repositoryUrl }}
-          npm run master_deploy
-        env:
-          GITHUB_TOKEN: ${{ github.token }}
+        uses: peaceiris/actions-gh-pages
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./build
