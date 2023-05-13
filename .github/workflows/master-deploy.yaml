@@ -1,7 +1,7 @@
 on:
   push:
     branches:
-      - gha
+      - master
     paths:
       - public/**
       - src/**
